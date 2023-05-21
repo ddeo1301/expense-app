@@ -3,15 +3,15 @@ const Expense = require('../models/Expense');
 exports.addExpense = async (req, res, next)=> {
 
    try{   
-   const amount = req.body.amount;
-   const description = req.body.description;
-   const category = req.body.category;
+      const amount = req.body.amount;
+      const description = req.body.description;
+      const category = req.body.category;
 
-   const data = await Expense.create( {
+      const data = await Expense.create( {
         amount: amount,
         description: description, 
         category: category
-    } )
+      } )
    res.status(201).json({newExpense: data});
    } catch(err){
       res.status(500).json({
